@@ -1,4 +1,4 @@
-package com.herusantoso.springboot.BelajarSpringBootCrud;
+package com.herusantoso.springboot.belajarspringbootcrud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
