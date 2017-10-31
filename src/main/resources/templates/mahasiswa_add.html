@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Starter Template for Bootstrap</title>
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Spring Boot Crud Example</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/mahasiswa">Mahasiswa</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <h1>Mahasiswa</h1>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <form class="form-horizontal" th:object="${mahasiswa}" th:action="@{/mahasiswa/add}" method="post">
+                <input type="hidden" th:field="*{version}" />
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nim</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" th:field="*{nim}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nama</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" th:field="*{nama}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Alamat</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" th:field="*{alamat}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Jurusan</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" th:field="*{jurusan}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Starter Template for Bootstrap</title>
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Spring Boot Crud Example</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/mahasiswa">Mahasiswa</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div th:if="${not #lists.isEmpty(mahasiswa)}">
+            <table class="table table-striped">
+                <thead>
+                <tr >
+                    <th>Nim</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Jurusan</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="mahasiswas : ${mahasiswa}">
+                    <td th:text="${mahasiswas.nim}"></td>
+                    <td th:text="${mahasiswas.nama}"></td>
+                    <td th:text="${mahasiswas.alamat}"></td>
+                    <td th:text="${mahasiswas.jurusan}"></td>
+                    <td>
+                        <a th:href="${'/mahasiswa/edit/'+ mahasiswas.nim}">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a th:href="${'/mahasiswa/hapus/'+mahasiswas.nim}">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <a class="btn btn-default" href="/mahasiswa/add">Tambah Data</a>
+        </div>
+    </div>
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

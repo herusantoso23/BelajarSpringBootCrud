@@ -1,9 +1,6 @@
 package com.herusantoso.springboot.belajarspringbootcrud.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "mahasiswa")
@@ -24,6 +21,11 @@ public class Mahasiswa {
 
     @Column(name = "jurusan")
     private String jurusan;
+
+    @Version
+    @Column(name = "optVersion", columnDefinition = "integer DEFAULT 0")
+    private Integer version;
+
 
     public int getNim() {
         return nim;
@@ -55,5 +57,13 @@ public class Mahasiswa {
 
     public void setJurusan(String jurusan) {
         this.jurusan = jurusan;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }
