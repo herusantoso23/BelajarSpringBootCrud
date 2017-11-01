@@ -71,10 +71,6 @@ Di dalam project, buka file <i>pom.xml</i>. Lalu tambahkan beberapa depedency ya
 
 ## Konfigurasi database di spring boot
 
-Download bootstrap, anda dapat mengunjungi http://getbootstrap.com/ . Extract file archieve tersebut lalu taruh di <i>src/main/resources/static</i> .
-
-## Membuat package
-
 1. Buat database dengan nama "db_mahasiswa"
 2. Buka appication.properties, dan tambahkan beberapa code seperti dibawah ini :
 
@@ -93,6 +89,10 @@ spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
 
 
 ```
+
+## Membuat package
+
+Buatla 4 buah package diantaranya model, dao, service dan controller.
 
 ## Membuat model mahasiswa
 
